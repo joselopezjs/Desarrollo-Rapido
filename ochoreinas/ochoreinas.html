@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        table, td, tr{ 
+            border: 1px solid black;
+            border-collapse: collapse; 
+            width:  400px;
+            height: 50px;   
+        }
+
+        tr:nth-child(odd) td:nth-child(even), tr:nth-child(even) td:nth-child(odd){ 
+            background: #2369ba
+        }
+
+        tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd){     
+            background: #ffd500
+        }
+        
+    </style>
+    <script>
+        function colocar (celda){ 
+            alert("aqui esta la reina" + celda);
+            celda.style="background-image:url(./img/queen.png);background-size:cover;"
+        }
+    </script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+        </tr>
+        <tr>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+        </tr><tr>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+        </tr><tr>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+        </tr><tr>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+        </tr><tr>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+        </tr><tr>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+        </tr><tr>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+            <td onclick="colocar(this)"></td>
+        </tr>
+    </table>
+</body>
+</html>
+
