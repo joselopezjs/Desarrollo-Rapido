@@ -97,8 +97,8 @@ function generarSQL(){
                 var nombre1 = nombres[Math.floor(Math.random() * nombres.length)];
                 var correo = "a2024" + cantidad + i + "@dominio.edu.mx";
                 query += "\"matricula\":2024"+ (cantidad + i) +",<br>\"apellido1\":\"" + apellido1 + "\", <br>\"apellido2\":\"" + apellido2 + "\",<br>" 
-                + "\"nombres\":\"" + nombre + " " + nombre1 + "\",'" + ",<br>\"correo\":\"" + correo 
-                + "','" + ",<br>\"fecha de nacimiento\":\"" + generarFecha(1930,2005) + "',<br>";
+                + "\"nombres\":\"" + nombre + " " + nombre1 + "\",<br>\"correo\":\"" + correo 
+                + "\",<br>\"fecha de nacimiento\":" + generarFecha(1930,2005) + "}<br>";
             }
             query = query.slice(0, -5) + ";";
             document.getElementById("pResultado").innerHTML = query;
