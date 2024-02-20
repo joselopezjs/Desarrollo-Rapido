@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My HTML Page</title>
+    <script>
+        var query="";
+        const apellidos = [
+  "García", "Fernández", "González", "Rodríguez", "López", "Martínez", "Sánchez", "Pérez", "Gómez", "Martín",
+  "Jiménez", "Ruiz", "Hernández", "Díaz", "Moreno", "Muñoz", "Álvarez", "Romero", "Alonso", "Gutiérrez",
+  "Navarro", "Torres", "Domínguez", "Vázquez", "Ramos", "Gil", "Ramírez", "Serrano", "Blanco", "Molina",
+  "Morales", "Suárez", "Ortega", "Delgado", "Castro", "Ortiz", "Rubio", "Marín", "Sanz", "Iglesias",
+  "Nuñez", "Medina", "Garrido", "Cortés", "Castillo", "Santos", "Lozano", "Guerrero", "Cano", "Prieto",
+  "Méndez", "Cruz", "Calvo", "Gallego", "Herrera", "Marquez", "Peña", "Vidal", "León", "Herrero",
+  "Escobar", "Lorenzo", "Montero", "Hidalgo", "Giménez", "Ibáñez", "Ferrer", "Duran", "Santiago", "Benítez",
+  "Mora", "Vicente", "Vega", "Caballero", "Reyes", "Aguilar", "Pascual", "Santana", "Herranz", "Luna",
+  "Rojas", "Salazar", "Aguirre", "Parra", "Bravo", "Gallardo", "Rojas", "Soto", "Campos", "Vargas",
+  "Carrasco", "Fuentes", "Velasco", "Cabello", "Salas", "Cabrera", "Galván", "Montes", "Morán", "Arias",
+  "Arroyo", "Gálvez", "Pardo", "Merino", "Moya", "Solís", "Pastor", "Vera", "Esteban", "Bravo",
+  "Miguel", "Rivas", "Guzmán", "Izquierdo", "Gil", "Varela", "Andrade", "Ríos", "Macías", "Escudero",
+  "Zamora", "Blázquez", "Maldonado", "Sosa", "Casas", "Pineda", "Espejo", "Corona", "Corral", "Quintana",
+  "Carmona", "Valladares", "Peñalver", "Cordero", "Peralta", "Villalobos", "Olivares", "Galindo", "Arellano", "Nava",
+  "Ledesma", "Tovar", "Barrios", "Cazares", "Quezada", "Lugo", "Pacheco", "Espinosa", "Cerda", "Villar",
+  "Navarrete", "Soler", "Márquez", "Duarte", "Salgado", "Páez", "Ayala", "Escalante", "Mejía", "Magallanes",
+  "Lira", "Avilés", "Osorio", "Aranda", "Rico", "Salinas", "Treviño", "Aldana", "Aragón", "Acosta",
+  "Vivar", "Camacho", "Castañeda", "Betancourt", "Ponce", "Galán", "Regalado", "Zarate", "Mansilla", "Estrada",
+  "Villanueva", "Velasquez", "Cárdenas", "Guillén", "Guevara", "Valencia", "Franco", "Medrano", "Lara", "Trejo"
+];
+const apellidos2 = [
+  "Abdullayev", "Aitbayev", "Akhmetov", "Aliyev", "Amirov", "Asanov", "Askarov", "Avdeyev", "Babayev", "Bekmambetov",
+  "Berdyev", "Berezovsky", "Bogdanov", "Chernenko", "Dmitriyev", "Egorov", "Fedorov", "Gavrilov", "Gennadyev", "Gerasimov",
+  "Golubev", "Gubanov", "Ibragimov", "Ivanov", "Kazakov", "Kerimov", "Kolesnikov", "Korolyov", "Kozlov", "Kulikov",
+  "Kuzmin", "Lavrov", "Lebedev", "Litvinov", "Makarov", "Malakhov", "Melnikov", "Mikhailov", "Mironov", "Morozov",
+  "Nazarbayev", "Nikitin", "Nikolayev", "Novikov", "Orlov", "Osipov", "Pavlov", "Petrov", "Polyakov", "Popov",
+  "Prokofiev", "Rakhimov", "Romanov", "Rostov", "Rybakov", "Safarov", "Semyonov", "Sergeyev", "Shapovalov", "Shishkin",
+  "Sidorov", "Smirnov", "Sokolov", "Solovyov", "Sorokin", "Stepanov", "Taranov", "Tikhonov", "Timofeyev", "Titov",
+  "Tolstoy", "Tretiakov", "Ushakov", "Vasilyev", "Vinogradov", "Vladimirov", "Volkov", "Vorobyov", "Yakovlev", "Yermolov",
+  "Zaitsev", "Zakharov", "Zaytsev", "Zhukov", "Zinoviev", "Kuznetsov", "Savin", "Klimov", "Petrovsky", "Mamedov",
+  "Lyubimov", "Turgenev", "Fomin", "Sologub", "Pankratov", "Krupin", "Tsarukyan", "Sarkisov", "Belyaev", "Komarov",
+  "Isaev", "Gusev", "Tikhomirov", "Kornilov", "Medvedev", "Kireyev", "Trofimov", "Moroz", "Voronin", "Sokolnikov",
+  "Ryabov", "Bolshakov", "Sysoyev", "Misnik", "Golovin", "Kudryavtsev", "Bykov", "Svetlov", "Baranov", "Kulakov",
+  "Gorbunov", "Karpov", "Voloshin", "Smolyaninov", "Druzhinin", "Dobrynin", "Firsov", "Belov", "Miroshnikov", "Kozhin",
+  "Andreyev", "Pugin", "Rodionov", "Shvedov", "Kholodov", "Yudin", "Nikitov", "Krasnov", "Subbotin", "Shcherbakov",
+  "Likhachev", "Jumadilov", "Bazarbayev", "Mukhanov", "Zhaxylykov", "Tazhibayev", "Esenbayev", "Dauletbayev", "Nurmakov", "Sadykov",
+  "Tleubayev", "Amanzholov", "Bayzakov", "Kenzhebekov", "Rakhmetov", "Sharipov", "Umarov", "Vassilenko", "Yessenov", "Zhakypov", "Akhmetzhanov"
+];
+const nombres = [
+        "Alejandro", "Sergio", "Miguel", "Pablo", "Juan", "Antonio", "Javier", "José", "Carlos", "Manuel",
+        "Lucía", "María", "Carmen", "Ana", "Laura", "Marta", "Paula", "Sara", "Raquel", "Elena",
+        "Luis", "Fernando", "Alberto", "Alfonso", "Rafael", "Pedro", "Víctor", "Rubén", "Óscar", "Raúl",
+        "Isabel", "Patricia", "Nuria", "Silvia", "Beatriz", "Rocío", "Irene", "Virginia", "Clara", "Sonia",
+        "Hans", "Jürgen", "Stefan", "Wolfgang", "Klaus", "Peter", "Frank", "Dieter", "Thomas", "Michael",
+        "Ursula", "Sabine", "Monika", "Petra", "Brigitte", "Christina", "Gisela", "Martina", "Andrea", "Angela",
+        "Bernd", "Karl", "Heinrich", "Martin", "Georg", "Friedrich", "Wilhelm", "Ludwig", "Rolf", "Siegfried",
+        "Heike", "Anke", "Susanne", "Birgit", "Karin", "Daniela", "Katrin", "Ingrid", "Marina", "Edith",
+        "Erik", "Lars", "Anders", "Johan", "Nils", "Per", "Olof", "Karl", "Gustav", "Lennart",
+        "Ingrid", "Helga", "Birgit", "Astrid", "Liselotte", "Karin", "Anna", "Maria", "Kristina", "Eva",
+        "Björn", "Leif", "Sven", "Magnus", "Olaf", "Henrik", "Gunnar", "Fredrik", "Mikael", "Bertil",
+        "Elin", "Britt", "Elisabeth", "Hanna", "Sofia", "Emma", "Linnea", "Ida", "Malin", "Louise",
+        "Jean", "Pierre", "Michel", "Alain", "Jacques", "Philippe", "Bernard", "Marc", "Daniel", "François",
+        "Marie", "Nathalie", "Monique", "Sylvie", "Isabelle", "Martine", "Anne", "Christine", "Laurence", "Sophie",
+        "Thierry", "Christian", "Patrick", "Gérard", "Dominique", "Claude", "Serge", "André", "Jean-Pierre", "Guy",
+        "Catherine", "Françoise", "Patricia", "Valérie", "Danielle", "Pascale", "Brigitte", "Sandrine", "Chantal", "Nicole"
+    ];
+
+
+    function generarFecha(anioInicio, anioFin) {
+  // Generar año, mes y día al azar
+  const anio = Math.floor(Math.random() * (anioFin - anioInicio + 1)) + anioInicio;
+  const mes = Math.floor(Math.random() * 12) + 1;
+  const dia = Math.floor(Math.random() * 28) + 1; // Para simplificar, mantenemos 28 para evitar complicaciones con meses de diferente duración
+
+  // Formatear la fecha al estilo MySQL (YYYY-MM-DD)
+  const fecha = `${anio}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
+
+  return fecha;
+}
+
+function generarSQL(){
+        var contenidosql=document.createElement("a");
+        query=query.replaceAll("<br>", "\r\n");
+        contenidosql.setAttribute("href", "data:text/plane;charset=UTF-8,"+encodeURIComponent(query));
+        contenidosql.setAttribute("download", "alumnos.sql");
+        contenidosql.style.display="none";
+        document.body.appendChild(contenidosql);
+        contenidosql.click();
+        document.body.removeChild(contenidosql);
+    }
+
+        function generarAlumnos(){
+            var cantidad = parseInt(document.getElementById("txtCantidad").value);
+            query = "USE sistema_escolar;<br>DELETE FROM alumnos;<br> INSERT INTO alumnos (matricula, apellido1, apellido2, nombres, correo, fecha_nacimiento) VALUES ";
+            for(var i = 0; i < cantidad; i++){
+                var apellido1 = apellidos[Math.floor(Math.random() * apellidos.length)];
+                var apellido2 = apellidos2[Math.floor(Math.random() * apellidos2.length)];
+                var nombre = nombres[Math.floor(Math.random() * nombres.length)];
+                var nombre1 = nombres[Math.floor(Math.random() * nombres.length)];
+                var correo = "a2024" + cantidad + i + "@dominio.edu.mx";
+                query += "(2024"+ (cantidad + i) +",'" + apellido1 + "','" + apellido2 + "','" 
+                + nombre + " " + nombre1 + "','" + correo 
+                + "','" + generarFecha(1930,2005) + "'),<br>";
+            }
+            query = query.slice(0, -5) + ";";
+            document.getElementById("pResultado").innerHTML = query;
+        }
+    </script>
+</head>
+<body>
+    <!-- Your content goes here -->
+    <h1>Generador de datos dummy</h1>
+    <button id="btnGenerar" onclick="generarAlumnos()">Generar alumnos</button>
+    <label for="txtCantidad">Cantidad de alumnos:</label>
+    <input type="number" id="txtCantidad" value="10" limit="100000">
+    <button id="btnGenerar" onclick="generarSQL()">Generar archivo SQL</button>
+    <p id="pResultado"></p>
+    
+</body>
+</html>
