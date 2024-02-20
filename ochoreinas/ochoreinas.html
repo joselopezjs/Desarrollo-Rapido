@@ -18,10 +18,135 @@
         
     </style>
     <script>
-        function colocar (celda){ 
-            alert("aqui esta la reina" + celda);
-            celda.style="background-image:url(./img/queen.png);background-size:cover;"
+        var reinasColocadas = 0;
+    var reinasRestantes = 8;
+
+    function colocar(celda) {
+        var renglon = celda.parentElement.rowIndex;
+        var columna = celda.cellIndex;
+
+        if (window.getComputedStyle(celda).backgroundImage != "none") {
+            celda.style = "background-image:none;"
+            reinasColocadas--;
+            reinasRestantes++;
+            document.getElementById("reinasColocadas").innerHTML = reinasColocadas;
+            document.getElementById("reinasRestantes").innerHTML = reinasRestantes;
+            var tablero = document.getElementById("chessBoard");
+            for (var i = 0; i < 8; i++) {
+                if (i != columna) {
+                    tablero.rows[renglon].cells[i].style.backgroundColor = "";
+                }
+                if (i != renglon) {
+                    tablero.rows[i].cells[columna].style.backgroundColor = "";
+                }
+                if (renglon + i < 8 && columna + i < 8) {
+                    tablero.rows[renglon + i].cells[columna + i].style.backgroundColor = "";
+                }
+                if (renglon - i >= 0 && columna - i >= 0) {
+                    tablero.rows[renglon - i].cells[columna - i].style.backgroundColor = "";
+                }
+                if (renglon + i < 8 && columna - i >= 0) {
+                    tablero.rows[renglon + i].cells[columna - i].style.backgroundColor = "";
+                }
+                if (renglon - i >= 0 && columna + i < 8) {
+                    tablero.rows[renglon - i].cells[columna + i].style.backgroundColor = "";
+                }
+            }
+
+        } else {
+
+            if (reinasColocadas < 8) {
+                celda.style = "background-image:url(./img/queen.png);background-size:cover;"
+                reinasColocadas++;
+                reinasRestantes--;
+                document.getElementById("reinasColocadas").innerHTML = reinasColocadas;
+                document.getElementById("reinasRestantes").innerHTML = reinasRestantes;
+                var tablero = document.getElementById("chessBoard");
+                for (var i = 0; i < 8; i++) {
+                    if (i != columna) {
+                        tablero.rows[renglon].cells[i].style.backgroundColor = "#FF0000";
+                    }
+                    if (i != renglon) {
+                        tablero.rows[i].cells[columna].style.backgroundColor = "#FF0000";
+                    }
+                    if (renglon + i < 8 && columna + i < 8) {
+                        tablero.rows[renglon + i].cells[columna + i].style.backgroundColor = "#FF0000";
+                    }
+                    if (renglon - i >= 0 && columna - i >= 0) {
+                        tablero.rows[renglon - i].cells[columna - i].style.backgroundColor = "#FF0000";
+                    }
+                    if (renglon + i < 8 && columna - i >= 0) {
+                        tablero.rows[renglon + i].cells[columna - i].style.backgroundColor = "#FF0000";
+                    }
+                    if (renglon - i >= 0 && columna + i < 8) {
+                        tablero.rows[renglon - i].cells[columna + i].style.backgroundColor = "#FF0000";
+                    }
+                    celda.style.backgroundColor = "";
+                }
+            }
         }
+    }
+
+
+    function solucion(solucion) {
+        switch (solucion) {
+            case "1": solucion1(); break;
+            case "2": solucion2(); break;
+            case "3": solucion3(); break;
+        }
+        document.getElementById("reinasColocadas").innerHTML = 8;
+        reinasColocadas=8;
+        reinasRestantes=0
+    }
+
+    function solucion1() {
+        limpiar();
+        var celdas = document.getElementById("chessBoard");
+
+        celdas.rows[0].cells[3].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[1].cells[6].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[2].cells[2].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[3].cells[7].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[4].cells[1].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[5].cells[4].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[6].cells[0].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[7].cells[5].style = "background-image:url(./img/queen.png);background-size:cover;"
+    }
+
+    function solucion2() {
+        limpiar();
+        var celdas = document.getElementById("chessBoard");
+
+        celdas.rows[0].cells[4].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[1].cells[1].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[2].cells[3].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[3].cells[6].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[4].cells[2].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[5].cells[7].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[6].cells[5].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[7].cells[0].style = "background-image:url(./img/queen.png);background-size:cover;"
+    }
+
+    function solucion3() {
+        limpiar();
+        var celdas = document.getElementById("chessBoard");
+
+        celdas.rows[0].cells[3].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[1].cells[1].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[2].cells[6].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[3].cells[2].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[4].cells[5].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[5].cells[7].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[6].cells[4].style = "background-image:url(./img/queen.png);background-size:cover;"
+        celdas.rows[7].cells[0].style = "background-image:url(./img/queen.png);background-size:cover;"
+    }
+
+    function limpiar(){
+        var celdas=document.getElementsByTagName("td");
+        for (var i = 0; i < celdas.length; i++) {
+            celdas[i].style = "background-image:none;"
+        }
+    }
     </script>
 
 <head>
@@ -29,8 +154,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+    <h1>8 Reinas</h1>
+<p>Colocar 8 reinas en un tablero de ajedrez sin que se amenacen entre ellas</p>
+<div>
+    <p>reinas colocadas: <span id="reinasColocadas">0</span> </p>
+    <p>reinas restantes: <span id="reinasRestantes">8</span> </p>
+    <p>reinas amenazadas: <span id="reinasAmenazadas">0</span> </p>
+    <select name="" id="" onchange="solucion(this.value)">
+        <option value="" selected>--</option>
+        <option value="1">Solucion 1</option>
+        <option value="2">Solucion 2</option>
+        <option value="3">Solucion 3</option>
+    </select>
+    <input type="button" value="Reiniciar" onclick="location.reload();">
+</div>
 <body>
-    <table>
+    <table id="chessBoard">
         <tr>
             <td onclick="colocar(this)"></td>
             <td onclick="colocar(this)"></td>
