@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -83,91 +83,8 @@
     </table>
 </body>
 </html>
--->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEMORAMA</title>
-    <script>
-        var validacion = 0;
-        var esperando = false; // Variable para controlar el estado de espera
-        var temporal; // Variable para almacenar la posición temporal
 
-        var images = [
-            "img/1.png", "img/1.png",
-            "img/2.png", "img/2.png",
-            "img/3.png", "img/3.png",
-            "img/4.png", "img/4.png",
-            "img/5.png", "img/5.png",
-            "img/6.png", "img/6.png",
-            "img/7.png", "img/7.png",
-            "img/8.png", "img/8.png",
-        ];
-
-        async function flip(posicion) {
-            document.getElementById('img' + posicion).srcset = images[posicion] + " 100w";
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            if (esperando) {
-                temporal = posicion;
-            } else {
-                if (images[posicion] == images[temporal]) {
-                    document.getElementById('img' + posicion).style.display = "none";
-                    document.getElementById('img' + temporal).style.display = "none";
-                    validacion++;
-                } else {
-                    document.getElementById('img' + posicion).srcset = "img/anverso.png 100w";
-                    document.getElementById('img' + temporal).srcset = "img/anverso.png 100w";
-                }
-            }
-            esperando = !esperando; // Cambiar el estado de espera
-            if (validacion == 8) {
-                alert("¡Ganaste...!");
-            }
-        }
-
-        function shuffler() {
-            for (var i = images.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                [images[i], images[j]] = [images[j], images[i]];
-            }
-            console.log(images);
-        }
-    </script>
-</head>
-<body onload="shuffler();">
-    <table>
-        <tr>
-            <td><img id="img0" src="img/anverso.png" alt="" onclick="flip(0);"></td>
-            <td><img id="img1" src="img/anverso.png" alt="" onclick="flip(1);"></td>
-            <td><img id="img2" src="img/anverso.png" alt="" onclick="flip(2);"></td>
-            <td><img id="img3" src="img/anverso.png" alt="" onclick="flip(3);"></td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td><img id="img4" src="img/anverso.png" alt="" onclick="flip(4);"></td>
-            <td><img id="img5" src="img/anverso.png" alt="" onclick="flip(5);"></td>
-            <td><img id="img6" src="img/anverso.png" alt="" onclick="flip(6);"></td>
-            <td><img id="img7" src="img/anverso.png" alt="" onclick="flip(7);"></td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td><img id="img8" src="img/anverso.png" alt="" onclick="flip(8);"></td>
-            <td><img id="img9" src="img/anverso.png" alt="" onclick="flip(9);"></td>
-            <td><img id="img10" src="img/anverso.png" alt="" onclick="flip(10);"></td>
-            <td><img id="img11" src="img/anverso.png" alt="" onclick="flip(11);"></td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td><img id="img12" src="img/anverso.png" alt="" onclick="flip(12);"></td>
-            <td><img id="img13" src="img/anverso.png" alt="" onclick="flip(13);"></td>
-            <td><img id="img14" src="img/anverso.png" alt="" onclick="flip(14);"></td>
-            <td><img id="img15" src="img/anverso.png" alt="" onclick="flip(15);"></td>
         </tr>
     </table>
 </body>
